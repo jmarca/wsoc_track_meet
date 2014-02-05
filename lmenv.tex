@@ -1,0 +1,61 @@
+\startenvironment prenv
+\setuppapersize[letter][letter]
+\setuplayout[topspace=1.25in, backspace=1in, header=0pt, footer=36pt,
+  height=8.5in, width=6.5in]
+
+
+% where are the figures
+\setupexternalfigures[directory={shokawa_pics}]
+
+% which figures are being used
+
+%%\useexternalfigure[onedb][one-database-many-apps.png][width=0.7\textwidth]
+
+\usetypescript[termes]
+\setupbodyfont[termes,12pt]
+
+\setuppagenumbering[location={footer,center}]
+
+\setuphead[section,subsection][number=no,style={\ss\bfa}]
+\setuphead[subsubsection][number=no,style={\ss\bf}]
+
+\setupheadtext[section=Section]
+
+\setupreferencing[sectionnumber=no]
+
+
+% set inter-paragraph spacing
+\setupwhitespace[medium]
+% comment the next line to not indent paragraphs
+\setupindenting[medium, yes]
+% linespacing
+%\setupinterlinespace[big] %% default is small. options are small medium auto big
+% or you can specify a multiple of the size of an X.  The default is
+% 2.8ex.  setting to 3.8 to achieve "double-spacing"
+\setupinterlinespace[line=2.8ex]
+
+% default captions on top, for figures remember to push it to the
+% bottom and then reset
+\setupcaptions[minwidth=\textwidth, align=middle, location=bottom,spaceafter=7pt]
+
+% Tables and Lists
+\setupTABLE[frame=off, split=yes, offset=1mm,leftmargindistance=2mm,rightmargindistance=2mm]
+\setuptabulate[indentnext=no, align=right]
+\setupitemgroup[itemize][packed][indentnext=no,symbol=1,n=1]
+
+
+%%\setuptables[bodyfont=9pt]
+
+%% how to translate markdown in this doc
+\usemodule[filter]
+
+\defineexternalfilter
+    [markdown]
+    [filtercommand={pandoc -t context -i  \externalfilterinputfile\space -o \externalfilteroutputfile},
+      directory=output]
+
+% clickable pdf
+\setupinteraction[state=start,color=blue,contrastcolor=,style=normal]
+
+
+\stopenvironment

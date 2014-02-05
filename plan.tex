@@ -1,0 +1,28 @@
+\environment lmenv
+% lmenv.tex is the environment file that
+% sets up the layout, fonts, and style. It
+% also loads the filter module and sets up
+% a |markdown| external filter environment.
+
+% where are the figures
+%%\setupexternalfigures[directory={shokawa_pics}]
+
+% which figures are being used
+
+% \useexternalfigure[mylogo]
+%                   [logo.pdf][width=2cm]
+% \useexternalfigure[shokawapic]
+%                   [shokowapic.jpg][width=6in,height=4in]
+% \useexternalfigure[roof][roof.jpg][width=4in,height=6in]
+% \useexternalfigure[silk][silk_uyeda_c1925_14.jpg][width=6in,height=4in]
+% \useexternalfigure[titshirakawa][tit_shirakawa.jpg][width=6in,height=4in]
+
+
+\starttext
+\startalignment[center]
+  {\tfd {\em WSOC track meet}}
+  \blank[3*medium]
+\stopalignment
+  \processmarkdownfile{plan.md}
+
+\stoptext
